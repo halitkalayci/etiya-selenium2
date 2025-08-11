@@ -95,3 +95,33 @@ for i in range(5): # [0,1,2,3,4]
 #
 for i in range(15,20):
     print(i)
+
+for i in range(10,101,5):
+    print(i)
+
+students = ["Dilek","Recep","Abdülkerim"] # list
+print(students)
+for student in students:
+    print(student, end=" ")
+
+print("")
+a = 5
+while a < 10:
+    print(a) 
+    a += 1 # a = a + 1
+
+choice = input("Menüden işlem seçin")
+while choice != "q":
+    print("İşlem yapılıyor..")
+    choice = input("Menüden işlem seçin")
+
+def connect_database():
+    print("abc123 veritabanına bağlanılıyor..")
+    print("abc123 veritabanına bağlanılıyor..")
+    print("abc123 veritabanına bağlanılıyor..")
+    print("abc123 veritabanına bağlanılıyor..")
+
+connect_database()
+connect_database()
+connect_database()
+connect_database()
