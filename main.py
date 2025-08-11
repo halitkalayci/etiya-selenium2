@@ -115,13 +115,28 @@ while choice != "q":
     print("İşlem yapılıyor..")
     choice = input("Menüden işlem seçin")
 
-def connect_database():
-    print("abc123 veritabanına bağlanılıyor..")
-    print("abc123 veritabanına bağlanılıyor..")
-    print("abc123 veritabanına bağlanılıyor..")
-    print("abc123 veritabanına bağlanılıyor..")
+def connect_database(database_name):
+    print(database_name + " veritabanına bağlanılıyor..")
 
-connect_database()
-connect_database()
-connect_database()
-connect_database()
+connect_database("a")
+connect_database("b")
+connect_database("c")
+connect_database("d")
+
+def topla(a,b):
+    return a+b
+
+toplam1 = topla(5,10)
+toplam2 = topla(3,5)
+
+print(toplam1)
+print(toplam2+15)
+
+def bolme(a,b):
+    if b == 0:
+        print("B 0 olamaz.")
+        return #Fonksiyon burada kesilsin.
+    return a/b
+
+print(bolme(10,2))
+print(bolme(5,0))
