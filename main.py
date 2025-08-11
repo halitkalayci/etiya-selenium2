@@ -140,3 +140,10 @@ def bolme(a,b):
 
 print(bolme(10,2))
 print(bolme(5,0))
+
+
+# Faktöriyel hesaplayan bir fonksiyon yazalım
+# Döngü ile faktöriyel hesaplansın.
+# Hesaplanacak değer 5! 5->Parametreden alınsın
+# Eğer negatif parametre gelirse hata verip fonksiyon kapatılsın.
+# Hesaplanan değer return edilsin.
