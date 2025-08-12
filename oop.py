@@ -7,7 +7,6 @@ class Car():
 
     #def __init__(self,brand):
        # self.brand = brand
-
     def start_rent(self): #Classın fonksiyonlarına ilk parametre python tarafından otomatik gönderilir.
         print(self.brand) # self -> classın kendisini ifade eder.
         print("Araç kiralama başlatılıyor")
@@ -18,5 +17,5 @@ car1 = Car("Toyota",2025) # init fonk3
 car1.start_rent()
 car1.stop_rent()
 
-car2 = Car("Fiat") # init fonk
+car2 = Car("Fiat", 2025) # init fonk
 car2.start_rent()
