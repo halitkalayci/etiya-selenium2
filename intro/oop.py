@@ -19,3 +19,22 @@ car1.stop_rent()
 
 car2 = Car("Fiat", 2025) # init fonk
 car2.start_rent()
+
+# Super -> Kalıtım alınan nesneyi ifade eder.
+# Superclass-Subclass
+class ElectricCar(Car): #ElectricCar -> Car isimli classın tüm özelliklerini alır, ve genişletir.
+    def __init__(self, brand, year, battery):
+        super().__init__(brand, year)
+        # name mangling 
+        self.__battery = battery # private
+
+    def set_battery(self,battery):
+        if len(battery) < 2:
+            return
+        self.__battery = battery
+    def get_battery(self):
+        return self.__battery
+    
+electric_car = ElectricCar("Tesla",2025, "305Kw")
+electric_car.set_battery("1")
+print(electric_car.get_battery()) # get
