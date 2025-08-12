@@ -147,3 +147,61 @@ print(bolme(5,0))
 # Hesaplanacak değer 5! 5->Parametreden alınsın
 # Eğer negatif parametre gelirse hata verip fonksiyon kapatılsın.
 # Hesaplanan değer return edilsin.
+print("*************")
+def factorial(number):
+    if number < 0:
+       # print("Girilen değer negatif olamaz.")
+        return "Girilen değer negatif olamaz."
+    elif number == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1,number+1):
+            result *= i
+        return result
+    
+print(factorial(-1))
+print(factorial(0))
+print(factorial(5))
+
+# default arg. (optional)
+# default arglar non-defaultlardan sonra tanımlanmalı
+def calculate_tax(price,rate=0.2):
+    return price * rate
+
+print(calculate_tax(500))
+print(calculate_tax(300, 0.1))
+print(calculate_tax(4500))
+print(calculate_tax(400))
+print(calculate_tax(12500))
+print(calculate_tax(1500))
+
+#topla(1,2)
+#topla(1,2,3,4)
+#topla(1,2,3,4,5,6,7,8)
+
+#*args
+# tuple => Listenin read-only hali.
+def topla2(*numbers): # (1,2,3,4,5,6,7,8)
+    result = 0;
+    for number in numbers:
+        result += number
+    return result
+
+print(topla2(1,2))
+print(topla2(1,2,3,4,5))
+print(topla2(1,2,3))
+print(topla2(1))
+
+# Immutable -> Elemanları değişmez.
+fruits = ("Apple","Banana","Cherry")
+print(fruits)
+print(fruits[1])
+#fruits[1] = "X"
+
+# Dictionary
+person = {"Name":"Halit", "Surname":"Kalaycı", "Age": 25, "Name":"Enes"}
+print(person)
+print(person["Name"])
+print(person.keys())
+print(person.values())
