@@ -15,5 +15,9 @@ print(heading.text)
 span = driver.find_element(By.XPATH, "//*[@id='content']/my-paragraph[1]/span")
 print(span.text)
 
-p = driver.find_element(By.XPATH, "//*[@id='content']/my-paragraph[1]//p")
-print(p.text)
+
+my_paragprah = driver.find_element(By.TAG_NAME, "my-paragraph")
+print(my_paragprah.text)
+#my_paragprah.shadow_root.find_element()
+#p = my_paragprah.shadow_root.find_element(By.TAG_NAME, "p")
+#print(p.text)
