@@ -18,21 +18,16 @@ driver.get("https://www.saucedemo.com/")
 wait = WebDriverWait(driver,timeout=10,poll_frequency=0.5)
 username_input = wait.until(expected_conditions.visibility_of_element_located((By.ID,"user-name")))
 username_input.send_keys("standard_user") #
-
 # presence_of_element_located -> Element DOM ağacında var mı?
 # visibility_of_element_located -> Element DOM ağacında var mı ve görünür mü?
 # element_to_be_clickable -> Element DOM ağacında var mı, görünür mü ve tıklanabilir mi?
 # text_to_be_present_in_element -> Elementin içinde spesifik bir yazı görünene kadar.
 # alert_is_present -> Tarayıcı bir alert çıkarana kadar bekler.
-
 password_input = driver.find_element(By.ID, "password")
 password_input.send_keys("secret_sauce")
-
 login_btn = driver.find_element(By.ID, "login-button")
 login_btn.click()
-
 # Yeni bir işlem varsa bekle.
-
 time.sleep(500)
 
 #login_failure_invalid_password – Yanlış şifre ile giriş yapılamadığını doğrula
