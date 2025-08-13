@@ -1,7 +1,7 @@
 #Global Ayarlar
 import pytest
 from selenium.webdriver import Chrome
-
+from utils.image_helper import save_screenshot
 
 @pytest.fixture() #fixture-> Bütün pytest fonksiyonlarına burada tanımlanan bağımlılığı gönderir.
 def driver():
@@ -9,3 +9,12 @@ def driver():
     driver.maximize_window()
     yield driver # yield-> returnun multiple hali. return->fonks. orada durdurup değeri döndürüyor.
     driver.quit()
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_hook(item,call):
+    outcome = yield
+    if outcome is not None:
+        #result = outcome.get_result()
+        driver = item.funcargs.get("driver",None)
+        if driver is not None:
+            save_screenshot(driver, item.name)
