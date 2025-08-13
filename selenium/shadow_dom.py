@@ -7,17 +7,22 @@ from selenium.webdriver.support import expected_conditions
 
 
 driver = Chrome()
-driver.get("https://the-internet.herokuapp.com/shadowdom")
+driver.get("https://books-pwakit.appspot.com/")
 
-heading = driver.find_element(By.XPATH, "//*[@id='content']/h1")
-print(heading.text)
+book_app = driver.find_element(By.TAG_NAME, "book-app")
 
-span = driver.find_element(By.XPATH, "//*[@id='content']/my-paragraph[1]/span")
-print(span.text)
+shadow_dom_1 = book_app.shadow_root
+
+search_input = shadow_dom_1.find_element(By.ID, "input")
+search_input.send_keys("Orhan Pamuk")
 
 
-my_paragprah = driver.find_element(By.TAG_NAME, "my-paragraph")
-print(my_paragprah.text)
+#heading = driver.find_element(By.XPATH, "//*[@id='content']/h1")
+#print(heading.text)
+#span = driver.find_element(By.XPATH, "//*[@id='content']/my-paragraph[1]/span")
+#print(span.text)
+#my_paragprah = driver.find_element(By.TAG_NAME, "my-paragraph")
+#print(my_paragprah.text)
 #my_paragprah.shadow_root.find_element()
 #p = my_paragprah.shadow_root.find_element(By.TAG_NAME, "p")
 #print(p.text)
