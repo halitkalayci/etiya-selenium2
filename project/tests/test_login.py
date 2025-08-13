@@ -1,5 +1,6 @@
 from selenium.webdriver import Chrome
 from pages.login_page import LoginPage
+import pytest 
 class TestLogin():
     def test_login_valid(self):
         driver = Chrome()
@@ -7,9 +8,10 @@ class TestLogin():
         login_page.load()
         login_page.login("standard_user","secret_sauce")
         assert driver.current_url == "https://www.saucedemo.com/inventory.html"
-    def test_login_invalid(self):
+    @pytest.mark.parametrize("username,password", [("abc123","abc123"), ("123","123")])    
+    def test_login_invalid(self,username,password):
         driver = Chrome()
         login_page = LoginPage(driver)
         login_page.load()
-        login_page.login("standard_user","secret_sauce123")
+        login_page.login(username,password)
         assert login_page.get_error_message() == "Epic sadface: Username and password do not match any user in this service"
