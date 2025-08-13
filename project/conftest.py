@@ -11,10 +11,10 @@ def driver():
     driver.quit()
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_hook(item,call):
+def pytest_runtest_makereport(item,call):
     outcome = yield
-    if outcome is not None:
-        #result = outcome.get_result()
+    result = outcome.get_result()
+    if result.when == "call":
         driver = item.funcargs.get("driver",None)
         if driver is not None:
             save_screenshot(driver, item.name)
