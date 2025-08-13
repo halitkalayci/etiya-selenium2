@@ -12,3 +12,4 @@ class TestLogin():
         login_page = LoginPage(driver)
         login_page.load()
         login_page.login("standard_user","secret_sauce123")
+        assert login_page.get_error_message() == "Epic sadface: Username and password do not match any user in this service"
