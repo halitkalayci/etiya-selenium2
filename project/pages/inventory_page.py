@@ -18,3 +18,4 @@ class InventoryPage():
         container = self.wait.until(expected_conditions.visibility_of_element_located(self.inventory_container))
         products = container.find_elements(*self.products)
         return products
+    
