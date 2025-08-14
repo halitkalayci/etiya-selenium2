@@ -17,7 +17,7 @@ class TestInventory():
             description = inv_page.get_product_description(product)
             price = inv_page.get_product_price(product)
             img_url = inv_page.get_product_image_url(product)
-            assert csv_item[0] == title
-            assert csv_item[1] == description
-            assert csv_item[2] == price
-            assert csv_item[3] == img_url
+            assert csv_item[0] == title,f"Title eslesmiyor beklenen: {csv_item[0]}, gelen: {title}"
+            assert csv_item[1] == description,"Description eslesmiyor."
+            assert csv_item[2] == price,"Price eslesmiyor"
+            assert csv_item[3] == img_url,"img_url eslesmiyor"
