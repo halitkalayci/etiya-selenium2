@@ -13,7 +13,7 @@ class InventoryPage():
         self.product_title = (By.CLASS_NAME, "inventory_item_name")
         self.product_desc = (By.CLASS_NAME, "inventory_item_desc")
         self.product_price = (By.CLASS_NAME, "inventory_item_price")
-        self.product_img_url = (By.CLASS_NAME, "inventory_item_img")
+        self.product_img_url = (By.TAG_NAME, "img")
     
     def load(self,username="standard_user", password="secret_sauce"):
         login_page = LoginPage(self.driver)
@@ -30,8 +30,9 @@ class InventoryPage():
     def get_product_title(self,product):
         return product.find_element(*self.product_title).text
     def get_product_price(self,product):
-        pass
+        return product.find_element(*self.product_price).text
     def get_product_description(self,product):
-        pass
+        return product.find_element(*self.product_desc).text
     def get_product_image_url(self,product):
-        pass
+        img = product.find_element(*self.product_img_url)
+        return img.get_attribute("src")

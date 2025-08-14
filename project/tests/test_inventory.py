@@ -11,6 +11,13 @@ class TestInventory():
         inv_page = InventoryPage(driver)
         inv_page.load()
         products = inv_page.get_product_list()
-        for product in products:
+        for index, product in enumerate(products):
+            csv_item = csv_data[index]
             title = inv_page.get_product_title(product)
-            print(title)
+            description = inv_page.get_product_description(product)
+            price = inv_page.get_product_price(product)
+            img_url = inv_page.get_product_image_url(product)
+            assert csv_item[0] == title
+            assert csv_item[1] == description
+            assert csv_item[2] == price
+            assert csv_item[3] == img_url
