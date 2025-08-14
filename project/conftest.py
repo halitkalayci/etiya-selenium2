@@ -20,6 +20,3 @@ def pytest_runtest_makereport(item,call):
             save_screenshot(driver, item.name)
 
 # setup->call->teardown
-
-# 15:20
-# ana sayfa için page-tests klasörlerinde gerekli dosyaları oluşturalım. 1 test case yazalım.
