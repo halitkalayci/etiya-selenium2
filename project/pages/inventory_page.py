@@ -16,6 +16,7 @@ class InventoryPage():
         self.product_price = (By.CLASS_NAME, "inventory_item_price")
         self.product_img_url = (By.TAG_NAME, "img")
         self.sort_select_container = (By.CSS_SELECTOR, ".select_container")
+        self.cart_badge = (By.CSS_SELECTOR, "[data-test=\"shopping-cart-badge\"]")
     
     def load(self,username="standard_user", password="secret_sauce"):
         login_page = LoginPage(self.driver)
@@ -45,3 +46,20 @@ class InventoryPage():
             return el.is_displayed()
         except TimeoutException:
             return False
+
+    def add_to_cart(self, product_test_id):
+        selector = (By.CSS_SELECTOR, f"[data-test=\"add-to-cart-{product_test_id}\"]")
+        self.wait.until(expected_conditions.element_to_be_clickable(selector)).click()
+
+    def wait_cart_badge_text(self, expected_text):
+        try:
+            return self.wait.until(expected_conditions.text_to_be_present_in_element(self.cart_badge, expected_text))
+        except TimeoutException:
+            return False
+
+    def get_cart_badge_text(self):
+        try:
+            badge = self.wait.until(expected_conditions.visibility_of_element_located(self.cart_badge))
+            return badge.text
+        except TimeoutException:
+            return ""

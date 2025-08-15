@@ -26,3 +26,11 @@ class TestInventory():
         inv_page = InventoryPage(driver)
         inv_page.load()
         assert inv_page.is_sort_dropdown_visible(), "Sort dropdown gorunur degil"
+
+    def test_cart_badge(self, driver):
+        inv_page = InventoryPage(driver)
+        inv_page.load()
+        inv_page.add_to_cart("sauce-labs-bike-light")
+        assert inv_page.wait_cart_badge_text("1"), "Sepet rozeti beklenen metni gostermiyor"
+
+# 14:25
