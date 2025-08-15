@@ -21,3 +21,8 @@ class TestInventory():
             assert csv_item[1] == description,"Description eslesmiyor."
             assert csv_item[2] == price,"Price eslesmiyor"
             assert csv_item[3] == img_url,"img_url eslesmiyor"
+
+    def test_dropdown_visible(self, driver):
+        inv_page = InventoryPage(driver)
+        inv_page.load()
+        assert inv_page.is_sort_dropdown_visible(), "Sort dropdown gorunur degil"
